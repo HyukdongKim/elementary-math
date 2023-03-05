@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1677999632 "/Users/kimhyukdong/Documents/math/Class/Computational-PDE/HW3/math.tex" "math.pdf" "math" 1677999633
-  "/Users/kimhyukdong/Documents/math/Class/Computational-PDE/HW3/math.tex" 1677999632 3085 e4053a7a7c852293efee2bb50fbfccc0 ""
+["pdflatex"] 1678001399 "/Users/kimhyukdong/Documents/math/Class/Computational-PDE/HW3/math.tex" "math.pdf" "math" 1678001400
+  "/Users/kimhyukdong/Documents/math/Class/Computational-PDE/HW3/math.tex" 1678001399 3457 281f929e6efcb5ea9072093ad743afbc ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -148,8 +148,8 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1673836865 2826440 8cee64baefd11646dfbcf5549a25ff7e ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "math.aux" 1677999633 160 9ff030113309ecdcfc7af19b08b26d47 "pdflatex"
-  "math.tex" 1677999632 3085 e4053a7a7c852293efee2bb50fbfccc0 ""
+  "math.aux" 1678001400 160 9ff030113309ecdcfc7af19b08b26d47 "pdflatex"
+  "math.tex" 1678001399 3457 281f929e6efcb5ea9072093ad743afbc ""
   (generated)
   "math.aux"
   "math.log"

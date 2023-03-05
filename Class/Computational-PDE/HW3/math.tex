@@ -49,9 +49,18 @@
     \begin{align}
         F_{y} = \exp\left(\int_{}^{}\frac{Q_x-P_y}{P}dy\right)=\exp\left(\int_{}^{}\frac{0-a}{ay-b}dy\right)=e^{-\frac{1}{y^2}(ay-b+b \ln (|ay-b|))}.
     \end{align}
+
+
+Let $F=F_{x}$. Then, 
+\begin{align}
+    & y'+ay=b \\
+    & \Leftrightarrow e^{ax} y' + e^{ax} ay = e^{ax} b \\
+    & \Leftrightarrow \frac{d}{dx}e^{ax}y = e^{ax} b \\
+    & \Leftrightarrow \int_{}^{} \frac{d}{dx} e^{ax}y dx = \int_{}^{} e^{ax} b dx \\
+    & \Leftrightarrow e^{ax}y = \frac{b}{a}e^{ax}y + C \\
+    & \Leftrightarrow y = \frac{b}{a} + C e^{ax}y
+\end{align}
 \end{proof}
-
-
 % \begin{corollary}
 %     There's no right rectangle whose sides measure 3cm, 4cm, and 6cm.
 % \end{corollary}
