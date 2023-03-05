@@ -1,0 +1,107 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block of commands.  If you're proficient at LaTeX, you may include additional packages, create macros, etc. immediately below this block of commands, but make sure to NOT alter the header, margin, and comment settings here. 
+\documentclass[12pt]{article}
+ \usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ}
+\usepackage{cancel}
+%%% ADD-ON %%%
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{case}[2][Case]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+    
+\newenvironment{sol}
+{\emph{Solution:}
+}
+{
+    \qed
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}} %for instructor comments while grading
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Hyukdong Kim}  %replace with your name
+\rhead{Elementary Math \\ Computational PDE \\ Semester 1 \\ Assignment 2} %replace XYZ with the homework course number, semester (e.g. ``Spring 2019"), and assignment number.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block.
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%Solutions to problems go below. Please follow the guidelines from https://www.overleaf.com/read/sfbcjxcgsnsk/
+
+
+%Copy the following block of text for each problem in the assignment.
+Let 2nd order linear PDE: $$a_{11}u_{xx} + a_{12}u_{xy} + a_{21}u_{yx} + a_{22}u_{yy} + a_{1}u_{x} + a_{2}u_{y} + a_{0}u = 0$$.
+From the PDE, can get 
+
+\begin{equation}
+\left(\partial x + \frac{a_{12}}{a_{11} \partial y} \right)^2 u + \left( \frac{\det \rm{A}}{a_{11}^2} \right) (\partial y)^2 u + l.o.t = 0.
+\end{equation}
+
+$s.t.$
+\begin{equation*}
+    \rm{A} = 
+    \begin{pmatrix}
+    a_{11} & a_{12} \\
+    a_{21} & a_{22} 
+    \end{pmatrix}
+\end{equation*}
+
+\begin{case}{1}
+    $\det \rm{A} > 0$.
+\end{case}
+\begin{sol}
+    $$\left(\partial x + \frac{a_{12}}{a_{11} \partial y} \right)^2 u + \left( \frac{\det \rm{A}}{a_{11}^2} \right) (\partial y)^2 u + l.o.t$$
+    $$\Leftrightarrow \left( \partial t \right)^2 u + \left( \partial s \right)^2 u + l.o.t$$
+    $$\Leftrightarrow \underbrace{u_{tt} + u_{ss}}_{harmonic form} + l.o.t = 0$$
+\end{sol}
+
+\begin{case}{2}
+    $\det \rm{A} = 0$.
+\end{case}
+\begin{sol}
+    $$\left(\partial x + \frac{a_{12}}{a_{11} \partial y} \right)^2 u + \left( \frac{\cancelto{0}{\det \rm{A}}}{a_{11}^2} \right) (\partial y)^2 u + l.o.t$$
+    $$\Leftrightarrow \left( \partial t \right)^2 u + l.o.t$$
+    $$\Leftrightarrow u_{tt} + l.o.t = 0$$
+\end{sol}
+
+\begin{case}{3}
+    $\det \rm{A} < 0$.
+\end{case}
+\begin{sol}
+    $$\left(\partial x + \frac{a_{12}}{a_{11} \partial y} \right)^2 u + \left( \frac{\det \rm{A}}{a_{11}^2} \right) (\partial y)^2 u + l.o.t$$
+    $$\Leftrightarrow \left( \partial t \right)^2 u -\left( \partial s \right)^2 u + l.o.t$$
+    $$\Leftrightarrow u_{tt} -u_{ss} + l.o.t = 0$$
+\end{sol}
+
+%Copy the following block of text for each problem in the assignment.
+% \begin{problem}{x.y.z}
+% Statement of problem goes here (write the problem exactly as it appears in the book).
+% \end{problem}
+% \begin{sol}
+% Write your solution here.
+% \end{sol}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter anything below this line.
+\end{document}

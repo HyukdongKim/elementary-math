@@ -1,0 +1,100 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block of commands.  If you're proficient at LaTeX, you may include additional packages, create macros, etc. immediately below this block of commands, but make sure to NOT alter the header, margin, and comment settings here. 
+\documentclass[12pt]{article}
+ \usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ}
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+{\emph{Solution:}
+}
+{
+    \qed
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}} %for instructor comments while grading
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Hyukdong Kim}  %replace with your name
+\rhead{Elementary Math \\ Computational PDE\&ODE \\ Semester 1 \\ Assignment 1} %replace XYZ with the homework course number, semester (e.g. ``Spring 2019"), and assignment number.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block.
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%Solutions to problems go below.  Please follow the guidelines from https://www.overleaf.com/read/sfbcjxcgsnsk/
+
+
+%Copy the following block of text for each problem in the assignment.
+\begin{problem}{1} 
+Show that $u_{\alpha\alpha}+u_{\beta\beta}=0$. s.t. $u_{xx}-6u_{xy}+12u_{yy}=0$.
+\end{problem}
+\begin{sol}
+    \begin{align}
+        & u_{xx}-6u_{xy}+12u_{yy}=0 & \label{eq:1} \\
+        & \Leftrightarrow (\partial_{xx}-6\partial_{xy}+12\partial_{yy})u=0 & \label{eq:2} \\
+        & \Leftrightarrow ((\partial_{x}-3\partial_{y})^2+3\partial_{yy})u=0 & \label{eq:3}
+    \end{align}
+    From equation \eqref{eq:3}, we can get
+    \begin{align}
+        x & = 1 \cdot \alpha + 0 \cdot \beta = \alpha \label{eq:4} \\
+        y & = -3 \cdot \alpha + \sqrt{3} \cdot \beta  = -3 \alpha + \sqrt{3} \beta& \label{eq:5}
+    \end{align}
+    From equation \eqref{eq:4} and \eqref{eq:5}, we can get
+    \begin{align}
+        u_{\alpha} & = 1 \cdot u_{x} + (-3) \cdot u_{y} = u_{x}-3 u_{y}\label{eq:6} \\
+        u_{\beta} & = 0 \cdot u_{x} + \sqrt{3} \cdot u_{y} =\qquad \sqrt{3} u_{y} \label{eq:7} 
+    \end{align}
+    From equation \eqref{eq:6} and \eqref{eq:7}, we can get
+    \begin{align}
+        \partial_{\alpha} & = \partial_{x} -3 \partial_{y} \label{eq:8} \\
+        \partial_{\beta} & = \sqrt{3} \partial_{y} \label{eq:9} 
+    \end{align}
+    And, we can get
+    \begin{align}
+        \partial_{\alpha\alpha} & = \partial_{\alpha} \partial_{\alpha} = \partial_{\alpha}^2 \nonumber \\
+        & = (\partial_{x}-3\partial_{y})^2  (\because \textrm{Eq.} \eqref{eq:8}) \nonumber \\
+        & = \partial_{xx} -6 \partial_{xy} + 9 \partial_{yy} \label{eq:10}
+    \end{align}
+    \begin{align}
+        \partial_{\beta\beta} & = \partial_{\beta} \partial_{\beta} = (\partial_{\beta})^2 \nonumber \\
+        & = (\sqrt{3}\partial_{y})^2 (\because \textrm{Eq.} \eqref{eq:9}) \nonumber \\
+        & = 3 \partial_{yy} \label{eq:11}
+    \end{align}
+    Thus,
+    \begin{align}
+        u_{\alpha\alpha} + u_{\beta\beta} & = \underbrace{(\partial_{xx} -6 \partial_{xy} + 9 \partial_{yy})}_{\textrm{Eq.} \eqref{eq:10}} + \underbrace{(3\partial_{yy})}_{\textrm{Eq.} \eqref{eq:11}} \nonumber \\
+        & = \partial_{xx} - 6 \partial_{xy} + 12\partial_{yy} \nonumber \\
+        & = 0 \nonumber (\because \textrm{Eq.} \eqref{eq:2}) \nonumber
+    \end{align}
+\end{sol}
+
+
+
+%Copy the following block of text for each problem in the assignment.
+% \begin{problem}{x.y.z}
+% Statement of problem goes here (write the problem exactly as it appears in the book).
+% \end{problem}
+% \begin{sol}
+% Write your solution here.
+% \end{sol}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter anything below this line.
+\end{document}

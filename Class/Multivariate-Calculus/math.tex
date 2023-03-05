@@ -1,0 +1,101 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block of commands.  If you're proficient at LaTeX, you may include additional packages, create macros, etc. immediately below this block of commands, but make sure to NOT alter the header, margin, and comment settings here. 
+\documentclass[12pt]{article}
+ \usepackage[margin=1in]{geometry}
+ \usepackage{tikz}
+ \usepackage{tikz-3dplot}
+ \usepackage{cancel}
+\usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ}
+
+%%% ADD-ON %%%
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+{\emph{Solution:}
+}
+{
+    \qed
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}} %for instructor comments while grading
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Hyukdong Kim}  %replace with your name
+\rhead{Elementary Math \\ Multivariate Calculus \\ Semester 1 \\ Assignment 2} %replace XYZ with the homework course number, semester (e.g. ``Spring 2019"), and assignment number.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block.
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%Solutions to problems go below.  Please follow the guidelines from https://www.overleaf.com/read/sfbcjxcgsnsk/
+
+
+%Copy the following block of text for each problem in the assignment.
+\begin{problem}{1}
+    Let $w=P dy \wedge dz + Q dz \wedge dx + R dx \wedge dy$ be a 2-form.
+\end{problem}
+
+\begin{sol}
+    \begin{align*}
+        dw &=     d(P dy \wedge dz + Q dz \wedge dx + R dx \wedge dy) \\
+           &= \quad dP \wedge (dy \wedge dz) - P \wedge d(dy \wedge dz) \\
+           &\quad + dQ \wedge (dz \wedge dx) - Q \wedge d(dz \wedge dx) \\
+           &\quad + dR \wedge (dx \wedge dy) - P \wedge d(dx \wedge dy) \\
+           &= \quad \left(\frac{\partial{P}}{\partial{x}}dx+\frac{\partial{P}}{\partial{y}}dy+\frac{\partial{P}}{\partial{z}}dz\right) \wedge (dy \wedge dz) - P \wedge (\cancel{d^{2}y} \wedge dz + dy \wedge \cancel{d^{2}z}) \\
+           &\quad + \left(\frac{\partial{Q}}{\partial{x}}dx+\frac{\partial{Q}}{\partial{y}}dy+\frac{\partial{Q}}{\partial{z}}dz\right) \wedge (dz \wedge dx) - Q \wedge (\cancel{d^{2}z} \wedge dx + dz \wedge \cancel{d^{2}x}) \\
+           &\quad + \left(\frac{\partial{R}}{\partial{x}}dx+\frac{\partial{R}}{\partial{y}}dy+\frac{\partial{R}}{\partial{z}}dz\right) \wedge (dx \wedge dy) - R \wedge (\cancel{d^{2}x} \wedge dy + dx \wedge \cancel{d^{2}y}) \\
+           &=     \left\{ \left(\frac{\partial{P}}{\partial{x}}dx + \cancel{\frac{\partial{P}}{\partial{y}}dy} + \frac{\partial{P}}{\partial{z}}dz\right) \wedge dy \right\} \wedge dz - \cancel{P \wedge 0} \\
+           &\quad \left\{ \left(\frac{\partial{Q}}{\partial{x}}dx + \frac{\partial{Q}}{\partial{y}}dy + \cancel{\frac{\partial{Q}}{\partial{z}}dz}\right) \wedge dz \right\} \wedge dx - \cancel{Q \wedge 0} \\
+           &\quad \left\{ \left(\cancel{\frac{\partial{R}}{\partial{x}}dx} + \frac{\partial{R}}{\partial{y}}dy + \frac{\partial{R}}{\partial{z}}dz\right) \wedge dx \right\} \wedge dy - \cancel{R \wedge 0} \\
+           &= - \left\{ dz \wedge \left(\frac{\partial{P}}{\partial{x}}dx+\cancel{\frac{\partial{P}}{\partial{z}}dz}\right) \wedge dy \right\}\\
+           &\quad - \left\{ dx \wedge \left(\cancel{\frac{\partial{Q}}{\partial{x}}dx}+\frac{\partial{Q}}{\partial{y}}dy\right) \wedge dz \right\}\\
+           &\quad - \left\{ dy \wedge \left(\cancel{\frac{\partial{R}}{\partial{y}}dy}+\frac{\partial{R}}{\partial{z}}dz\right) \wedge dx \right\}\\
+           &= \frac{\partial{P}}{\partial{x}}(dx \wedge dy \wedge dz)
+            + \frac{\partial{Q}}{\partial{y}}(dy \wedge dz \wedge dx)
+            + \frac{\partial{R}}{\partial{z}}(dz \wedge dx \wedge dy) \\
+           &= \frac{\partial{P}}{\partial{x}}(dx \wedge dy \wedge dz)
+            + \frac{\partial{Q}}{\partial{y}}\left[dy \wedge \left\{-(dx \wedge dz)\right\}\right]
+            + \frac{\partial{R}}{\partial{z}}\left[\left\{-(dx \wedge dz)\right\} \wedge dy\right] \\
+           &= \frac{\partial{P}}{\partial{x}}(dx \wedge dy \wedge dz)
+            + \frac{\partial{Q}}{\partial{y}}\left\{(dx \wedge dy) \wedge dz\right\}
+            + \frac{\partial{R}}{\partial{z}}\left\{dx \wedge (dy \wedge dz)\right\} \\
+           &= \frac{\partial{P}}{\partial{x}}(dx \wedge dy \wedge dz)
+            + \frac{\partial{Q}}{\partial{y}}(dx \wedge dy \wedge dz)
+            + \frac{\partial{R}}{\partial{z}}(dx \wedge dy \wedge dz) \\
+           &= \left( \frac{\partial{P}}{\partial{x}}+\frac{\partial{Q}}{\partial{y}}+\frac{\partial{R}}{\partial{z}} \right) dx \wedge dy \wedge dz
+    \end{align*}
+    
+
+\end{sol}
+
+%Copy the following block of text for each problem in the assignment.
+% \begin{problem}{x.y.z}
+% Statement of problem goes here (write the problem exactly as it appears in the book).
+% \end{problem}
+% \begin{sol}
+% Write your solution here.
+% \end{sol}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter anything below this line.
+\end{document}

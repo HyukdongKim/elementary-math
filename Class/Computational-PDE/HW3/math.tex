@@ -1,0 +1,70 @@
+\documentclass[12pt]{article}
+    \usepackage[margin=1in]{geometry}
+    \usepackage{tikz}
+    \usepackage{tikz-3dplot}
+    \usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ}
+    \usepackage[english]{babel}
+    
+    %%% Style %%%
+    \theoremstyle{definition}
+    % \theoremstyle{remark}
+    \newtheorem{definition}{Definition}
+    \newtheorem{theorem}{Theorem}
+    \newtheorem{proposition}{Proposition}
+    \newtheorem{corollary}{Corollary}[theorem]
+    \newtheorem{lemma}[theorem]{Lemma}
+    \newtheorem{case}{Case}
+    \newtheorem*{remark}{Remark}
+
+    \pagestyle{fancy}
+    \setlength{\headheight}{65pt}
+    \newenvironment{problem}[2][Problem]{\begin{trivlist}
+    \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+%%% Author Info %%%
+\lhead{Hyukdong Kim}  %replace with your name
+\rhead{Elementary Math \\ Computational PDE \\ Semester 1 \\ Assignment 3} %replace XYZ with the homework course number, semester (e.g. ``Spring 2019"), and assignment number.
+
+\begin{document}
+\begin{definition}
+    With $\frac{dy}{dx}+Py=Q$ as 1st differential equation, if $Pdx+Qdy=0$ is not exact and $F(Pdx+Qdy)=0$ is exact, the integrating factor $F$ w.r.t. $x$ defined as 
+    \begin{align}
+        F_{x}=\exp\left(\int_{}^{}\frac{\frac{\partial}{\partial y}P-\frac{\partial}{\partial x}Q}{Q}dx\right)=\exp\left(\int_{}^{}\frac{P_y-Q_x}{Q}dx\right).\label{eq:1}
+    \end{align}
+    And, the integrating factor $F$ w.r.t. $y$ defined as 
+    \begin{align}
+        F_{y}=\exp\left(\int_{}^{}\frac{\frac{\partial}{\partial x}Q-\frac{\partial}{\partial y}P}{P}dx\right)=\exp\left(\int_{}^{}\frac{Q_x-P_y}{P}dy\right).\label{eq:2}
+    \end{align}    
+\end{definition}
+
+\begin{problem}{1}
+    Determine a solution of $y'+ay=b$ ($a,b \in \mathbb{R}$).
+\end{problem}
+\begin{proof}
+    From $y'+ay = \frac{dy}{dx}+ay=b \Leftrightarrow (ay-b)dx+dy=0$, $P_{y}=\frac{\partial}{\partial y}(ay-b)=a$, $Q_{x}=\frac{\partial}{\partial x}1=0$. Because $P_{y} \neq Q_{x}$, $Pdx+Qdy=0$ is not exact. Let $ay-b$ as P and $1$ as Q. From equation (\ref{eq:1}),
+    \begin{align}
+        F_{x} = \exp\left(\int_{}^{}\frac{P_y-Q_x}{Q}dx\right) =\exp\left(\int_{}^{}\frac{a-0}{1}dx\right)=e^{ax}.
+    \end{align}
+    and from equation (\ref{eq:2}),
+    \begin{align}
+        F_{y} = \exp\left(\int_{}^{}\frac{Q_x-P_y}{P}dy\right)=\exp\left(\int_{}^{}\frac{0-a}{ay-b}dy\right)=e^{-\frac{1}{y^2}(ay-b+b \ln (|ay-b|))}.
+    \end{align}
+\end{proof}
+
+
+% \begin{corollary}
+%     There's no right rectangle whose sides measure 3cm, 4cm, and 6cm.
+% \end{corollary}
+    
+% \begin{lemma}
+%     Given two line segments whose lengths are \(a\) and \(b\) respectively there is a real number \(r\) such that \(b=ra\).
+% \end{lemma}
+% \begin{proof}
+%     To prove it by contradiction try and assume that the statement is false, proceed from there and at some point you will arrive to a contradiction.
+% \end{proof}
+% \begin{case}
+%     asd
+% \end{case}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter anything below this line.
+\end{document}

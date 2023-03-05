@@ -1,0 +1,84 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block of commands.  If you're proficient at LaTeX, you may include additional packages, create macros, etc. immediately below this block of commands, but make sure to NOT alter the header, margin, and comment settings here. 
+\documentclass[12pt]{article}
+ \usepackage[margin=1in]{geometry}
+ \usepackage{tikz}
+ \usepackage{tikz-3dplot}
+\usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ}
+
+%%% ADD-ON %%%
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+{\emph{Solution:}
+}
+{
+    \qed
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}} %for instructor comments while grading
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Hyukdong Kim}  %replace with your name
+\rhead{Elementary Math \\ Proof \\ Semester 1 \\ Assignment 2} %replace XYZ with the homework course number, semester (e.g. ``Spring 2019"), and assignment number.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block.
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%Solutions to problems go below.  Please follow the guidelines from https://www.overleaf.com/read/sfbcjxcgsnsk/
+
+
+%Copy the following block of text for each problem in the assignment.
+Show that followings with definition.
+\begin{definition}
+    A function $f(x)$ is said to be continuous at a point $a$ if $\lim_{x\to a} f(x) = f(a)$.
+\end{definition}
+\begin{problem}{1} 
+    Show that $(0,1)$ is open.
+\end{problem}
+
+\begin{sol}
+    Fix any $x$ in $(0,1)$, choose $e = e(x) = \min(x, 1-x)$. Then, $(x-e, x+e) = (x-e, x+e) = (0, 1)$ is subset of $(0,1)$.
+\end{sol}
+
+\begin{problem}{2}
+    
+\end{problem}
+
+\begin{sol}
+    With negation: `There exists $x$ in A $s.t.$ for any $\epsilon > 0$, $(x-\epsilon, x+\epsilon)$ is not a subset of A',
+    let $x = 0$. Then, $(0-\epsilon,0+\epsilon)$ is not a subset of A. Because, $(-\epsilon,0)$ is subset of $(-\epsilon,\epsilon)$ but, not subset of A.
+\end{sol}
+
+%Copy the following block of text for each problem in the assignment.
+% \begin{problem}{x.y.z}
+% Statement of problem goes here (write the problem exactly as it appears in the book).
+% \end{problem}
+% \begin{sol}
+% Write your solution here.
+% \end{sol}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter anything below this line.
+\end{document}
