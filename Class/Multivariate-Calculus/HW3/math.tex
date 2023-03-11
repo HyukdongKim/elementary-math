@@ -1,0 +1,125 @@
+\documentclass[12pt]{article}
+    \usepackage[margin=1in]{geometry}
+    \usepackage{tikz}
+    \usepackage{tikz-3dplot}
+    \usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ}
+    \usepackage{multicol}
+    \usepackage[english]{babel}
+    
+    %%% Style %%%
+    \theoremstyle{definition}
+    % \theoremstyle{remark}
+    \newtheorem{definition}{Definition}
+    \newtheorem{theorem}{Theorem}
+    \newtheorem{proposition}{Proposition}
+    \newtheorem{corollary}{Corollary}[theorem]
+    \newtheorem{lemma}[theorem]{Lemma}
+    \newtheorem{case}{Case}
+    \newtheorem*{remark}{Remark}
+
+    \pagestyle{fancy}
+    \setlength{\headheight}{65pt}
+    \newenvironment{problem}[2][Problem]{\begin{trivlist}
+    \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+%%% Author Info %%%
+\lhead{Hyukdong Kim}  %replace with your name
+\rhead{Elementary Math \\ 
+       Multivatiate Calculus \\ 
+       Season 1 \\ 
+       Homework 3
+       } %replace XYZ with the homework course number, semester (e.g. ``Spring 2019"), and assignment number.
+
+\begin{document}
+% \begin{definition} 
+% \end{definition}
+
+\begin{problem}{1}
+    Compute $D(g \circ f)(0,1)$ When,
+    \begin{multicols}{2}
+        \noindent
+        \begin{align}
+            f : \mathbb{R}^{2} & \longrightarrow \mathbb{R}^{3} \nonumber \\ 
+            (x,y)              & \longmapsto (x^{3}+y,e^{xy},2+xy) \label{eq:1}
+        \end{align}
+        \begin{align}
+            g : \mathbb{R}^{3} & \longrightarrow \mathbb{R}^{2} \nonumber \\
+            (u,v,w)            & \longmapsto (u^{2}+v,uv+w^{3})  \label{eq:2}
+        \end{align}
+    \end{multicols}
+\end{problem}
+    
+\begin{proof}
+    From Equation \ref{eq:1} and \ref{eq:2}, Jacobian of function $f$ and $g$ are
+    \begin{align}
+        Df&=\begin{bmatrix}
+                \nabla (x^{3}+y) \\
+                \nabla (e^{xy})  \\
+                \nabla (2+xy)
+            \end{bmatrix}
+           =\begin{bmatrix}
+                \frac{d}{dx}(x^{3}+y) & \frac{d}{dy}(x^{3}+y) \\
+                \frac{d}{dx}(e^{xy})  & \frac{d}{dy}(e^{xy})  \\
+                \frac{d}{dx}(2+xy)    & \frac{d}{dy}(2+xy)
+            \end{bmatrix}
+          &=\begin{bmatrix}
+                3x^{2}  & 1      \\
+                ye^{xy} & xe^{xy} \\
+                y & x
+            \end{bmatrix}\\
+        Dg&=\begin{bmatrix}
+                \nabla (u^{2}+v) \\
+                \nabla (uv+w^{3})  \\
+            \end{bmatrix}
+            =\begin{bmatrix}
+                \frac{d}{du}(u^{2}+v)  & \frac{d}{dv}(u^{2}+v)  & \frac{d}{dw}(u^{2}+v) \\
+                \frac{d}{du}(uv+w^{3}) & \frac{d}{dv}(uv+w^{3}) & \frac{d}{dw}(uv+w^{3})
+            \end{bmatrix}
+          &=\begin{bmatrix}
+                2u & 1 & 0      \\
+                v  & u & 3w^{2} 
+            \end{bmatrix}
+    \end{align}
+    \begin{align}
+        D(g \circ f) &= Dg(\underbrace{f(0,1)}_{(1,1,2)}) \times Df(0,1) \\
+                     &= \begin{bmatrix}
+                            2 \times 1 & 1 & 0              \\
+                            1          & 1 & 3 \times 2^{2} 
+                        \end{bmatrix} 
+                        \begin{bmatrix}
+                            3 \times 0^{2}          & 1                       \\
+                            1 \times e^{0 \times 1} & 0 \times e^{0 \times 1} \\
+                            1                       & 0
+                        \end{bmatrix} \\
+                     &= \begin{bmatrix}
+                            2 & 1 & 0  \\
+                            1 & 1 & 12 
+                        \end{bmatrix}
+                        \begin{bmatrix}
+                            0 & 1 \\
+                            1 & 0 \\
+                            1 & 0
+                        \end{bmatrix} \\
+                     &= \begin{bmatrix}
+                            1 & 2 \\
+                            13 & 1
+                        \end{bmatrix} 
+    \end{align}
+\end{proof}
+
+% \begin{corollary}
+%     There's no right rectangle whose sides measure 3cm, 4cm, and 6cm.
+% \end{corollary}
+    
+% \begin{lemma}
+%     Given two line segments whose lengths are \(a\) and \(b\) respectively there is a real number \(r\) such that \(b=ra\).
+% \end{lemma}
+% \begin{proof}
+%     To prove it by contradiction try and assume that the statement is false, proceed from there and at some point you will arrive to a contradiction.
+% \end{proof}
+% \begin{case}
+%     asd
+% \end{case}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter anything below this line.
+\end{document}

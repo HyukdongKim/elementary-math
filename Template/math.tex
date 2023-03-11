@@ -1,82 +1,79 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Do not alter this block of commands.  If you're proficient at LaTeX, you may include additional packages, create macros, etc. immediately below this block of commands, but make sure to NOT alter the header, margin, and comment settings here. 
 \documentclass[12pt]{article}
- \usepackage[margin=1in]{geometry}
- \usepackage{tikz}
- \usepackage{tikz-3dplot}
-\usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ}
+    \usepackage[margin=1in]{geometry}
+    \usepackage{tikz}
+    \usepackage{tikz-3dplot}
+    \usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ}
+    \usepackage[english]{babel}
+    
+    %%% Style %%%
+    \theoremstyle{definition}
+    % \theoremstyle{remark}
+    \newtheorem{definition}{Definition}
+    \newtheorem{theorem}{Theorem}
+    \newtheorem{proposition}{Proposition}
+    \newtheorem{corollary}{Corollary}[theorem]
+    \newtheorem{lemma}[theorem]{Lemma}
+    \newtheorem{case}{Case}
+    \newtheorem*{remark}{Remark}
 
-%%% ADD-ON %%%
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}
-%%%%%%%%%%%%%%
+    \pagestyle{fancy}
+    \setlength{\headheight}{65pt}
+    \newenvironment{problem}[2][Problem]{\begin{trivlist}
+    \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
 
-\pagestyle{fancy}
-\setlength{\headheight}{65pt}
-\newenvironment{problem}[2][Problem]{\begin{trivlist}
-\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
-\newenvironment{sol}
-{\emph{Solution:}
-}
-{
-    \qed
-    }
-\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}} %for instructor comments while grading
-\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Fill in the appropriate information below
+%%% Author Info %%%
 \lhead{Hyukdong Kim}  %replace with your name
-\rhead{Elementary Math \\ Proof \\ Semester 1 \\ Assignment 2} %replace XYZ with the homework course number, semester (e.g. ``Spring 2019"), and assignment number.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\rhead{Elementary Math \\ Computational PDE \\ Semester 1 \\ Assignment 3} %replace XYZ with the homework course number, semester (e.g. ``Spring 2019"), and assignment number.
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Do not alter this block.
 \begin{document}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%Solutions to problems go below.  Please follow the guidelines from https://www.overleaf.com/read/sfbcjxcgsnsk/
-
-
-%Copy the following block of text for each problem in the assignment.
-Show that followings with definition.
 \begin{definition}
-    A function $f(x)$ is said to be continuous at a point $a$ if $\lim_{x\to a} f(x) = f(a)$.
+    With $\frac{dy}{dx}+Py=Q$ as 1st differential equation, if $Pdx+Qdy=0$ is not exact and $F(Pdx+Qdy)=0$ is exact, the integrating factor $F$ w.r.t. $x$ defined as 
+    \begin{align}
+        F_{x}=\exp\left(\int_{}^{}\frac{\frac{\partial}{\partial y}P-\frac{\partial}{\partial x}Q}{Q}dx\right)=\exp\left(\int_{}^{}\frac{P_y-Q_x}{Q}dx\right).\label{eq:1}
+    \end{align}
+    And, the integrating factor $F$ w.r.t. $y$ defined as 
+    \begin{align}
+        F_{y}=\exp\left(\int_{}^{}\frac{\frac{\partial}{\partial x}Q-\frac{\partial}{\partial y}P}{P}dx\right)=\exp\left(\int_{}^{}\frac{Q_x-P_y}{P}dy\right).\label{eq:2}
+    \end{align}    
 \end{definition}
-\begin{problem}{1} 
-    Show that $(0,1)$ is open.
+
+\begin{problem}{1}
+    Determine a solution of $y'+ay=b$ ($a,b \in \mathbb{R}$).
 \end{problem}
-
-\begin{sol}
-\end{sol}
-
-\begin{problem}{2}
-    Show that $[0,1]$ is not open.
-\end{problem}
-
-\begin{sol}
-
-\end{sol}
-
-%Copy the following block of text for each problem in the assignment.
-% \begin{problem}{x.y.z}
-% Statement of problem goes here (write the problem exactly as it appears in the book).
-% \end{problem}
-% \begin{sol}
-% Write your solution here.
-% \end{sol}
+\begin{proof}
+    From $y'+ay = \frac{dy}{dx}+ay=b \Leftrightarrow (ay-b)dx+dy=0$, $P_{y}=\frac{\partial}{\partial y}(ay-b)=a$, $Q_{x}=\frac{\partial}{\partial x}1=0$. Because $P_{y} \neq Q_{x}$, $Pdx+Qdy=0$ is not exact. Let $ay-b$ as P and $1$ as Q. From equation (\ref{eq:1}),
+    \begin{align}
+        F_{x} = \exp\left(\int_{}^{}\frac{P_y-Q_x}{Q}dx\right) =\exp\left(\int_{}^{}\frac{a-0}{1}dx\right)=e^{ax}.
+    \end{align}
+    and from equation (\ref{eq:2}),
+    \begin{align}
+        F_{y} = \exp\left(\int_{}^{}\frac{Q_x-P_y}{P}dy\right)=\exp\left(\int_{}^{}\frac{0-a}{ay-b}dy\right)=e^{-\frac{1}{y^2}(ay-b+b \ln (|ay-b|))}.
+    \end{align}
 
 
-
-
-
+Let $F=F_{x}$. Then, 
+\begin{align}
+    & y'+ay=b \\
+    & \Leftrightarrow e^{ax} y' + e^{ax} ay = e^{ax} b \\
+    & \Leftrightarrow \frac{d}{dx}e^{ax}y = e^{ax} b \\
+    & \Leftrightarrow \int_{}^{} \frac{d}{dx} e^{ax}y dx = \int_{}^{} e^{ax} b dx \\
+    & \Leftrightarrow e^{ax}y = \frac{b}{a}e^{ax}y + C \\
+    & \Leftrightarrow y = \frac{b}{a} + C e^{ax}y
+\end{align}
+\end{proof}
+% \begin{corollary}
+%     There's no right rectangle whose sides measure 3cm, 4cm, and 6cm.
+% \end{corollary}
+    
+% \begin{lemma}
+%     Given two line segments whose lengths are \(a\) and \(b\) respectively there is a real number \(r\) such that \(b=ra\).
+% \end{lemma}
+% \begin{proof}
+%     To prove it by contradiction try and assume that the statement is false, proceed from there and at some point you will arrive to a contradiction.
+% \end{proof}
+% \begin{case}
+%     asd
+% \end{case}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Do not alter anything below this line.
 \end{document}
