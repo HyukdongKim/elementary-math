@@ -1,0 +1,129 @@
+\documentclass[12pt]{article}
+    \usepackage[margin=1in]{geometry}
+    \usepackage{tikz}
+    \usepackage{tikz-3dplot}
+    \usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ}
+    \usepackage[english]{babel}
+    
+    %%% Style %%%
+    \theoremstyle{definition}
+    % \theoremstyle{remark}
+    \newtheorem{definition}{Definition}
+    \newtheorem{theorem}{Theorem}
+    \newtheorem{proposition}{Proposition}
+    \newtheorem{corollary}{Corollary}[theorem]
+    \newtheorem{lemma}[theorem]{Lemma}
+    \newtheorem{case}{Case}
+    \newtheorem*{remark}{Remark}
+
+    \pagestyle{fancy}
+    \setlength{\headheight}{65pt}
+    \newenvironment{problem}[2][Problem]{\begin{trivlist}
+    \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+    %%% Author Info %%%
+    \lhead{Hyukdong Kim}  %replace with your name
+    \rhead{Basic to Graduate \\ Lecture 1 \\ Set Theory (a)} %replace XYZ with the homework course number, semester (e.g. ``Spring 2019"), and assignment number.
+
+    %%% Custom Command %%%
+    \newcommand{\textop}[1]{\relax\ifmmode\mathop{\text{#1}}\else\text{#1}\fi} %https://tex.stackexchange.com/questions/8047/spacing-around-text-in-mathmode
+
+\begin{document}
+
+\begin{problem}{1}
+    (b) Show $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$.
+\end{problem}
+\begin{proof}
+    \begin{align}
+        A \cup (B \cap C) & \Leftrightarrow x \in A \textop{or} (x \in B \textop{and} x \in C) \\
+        & \Leftrightarrow (x \in A \textop{or} x \in B) \textop{and} (x \in A \textop{or} x \in C)\\
+        & \Leftrightarrow (A \cup B) \cap (A \cup C) 
+    \end{align}
+    \begin{align*}
+        \therefore A \cup (B \cap C) = (A \cup B) \cap (A \cup C)
+    \end{align*}
+\end{proof}
+
+\begin{problem}{2}
+    (c) Show $(A \cup B)^c = A^c \cap B^c$.
+\end{problem}
+\begin{proof}
+    \begin{align}
+        (A \cup B)^c & \Leftrightarrow x \notin (A \cup B) \\
+        & \Leftrightarrow x \notin A \textop{and} x \notin B\\
+        & \Leftrightarrow x \in A^c \textop{and} x \in B^c \\
+        & \Leftrightarrow A^c \cap B^c
+    \end{align}
+    \begin{align*}
+        \therefore (A \cup B)^c = A^c \cap B^c
+    \end{align*}
+\end{proof}
+
+\begin{problem}{3}
+    (d) Show $(A \cap B)^c = A^c \cup B^c$.
+\end{problem}
+\begin{proof}
+    \begin{align}
+        (A \cap B)^c & \Leftrightarrow x \notin (A \cap B) \\
+        & \Leftrightarrow x \notin A \textop{or} x \notin B\\
+        & \Leftrightarrow x \in A^c \textop{or} x \in B^c \\
+        & \Leftrightarrow A^c \cup B^c
+    \end{align}
+    \begin{align*}
+        \therefore (A \cap B)^c = A^c \cup B^c
+    \end{align*}
+\end{proof}
+
+
+\begin{problem}{4}
+    If set $A$ has $n$ elements, then show that $\mathcal{P}(A)$ has $2^n$ elements.
+\end{problem}
+\begin{proof}
+    A combination of the presence or absence of each element in a set $A$. \\
+    \begin{align*}
+        \overbrace{2 \times 2 \times \cdots \times 2}^{n \textop{times}} = 2^n
+    \end{align*}
+\end{proof}
+
+\begin{problem}{5}
+    Show $f(A_1 \cup A_2) = f(A_1) \cup f(A_2)$
+\end{problem}
+\begin{proof}
+    \textcircled{1} $f(A_1 \cup A_2) \subseteq f(A_1) \cup f(A_2)$
+    \begin{align}
+        x \in A_1 \cup A_2 & \Leftrightarrow x \in A_1 \textop{or} x \in A_2 \\
+        & \Leftrightarrow f(x) \in f(A_1) \textop{or} f(x) \in f(A_2) \\
+        & \Leftrightarrow f(x) \in f(A_1) \cup f(A_2) 
+    \end{align}
+    \begin{align*}
+        \therefore f(A_1 \cup A_2) \subseteq f(A_1) \cup f(A_2)
+    \end{align*}
+    \textcircled{2} $f(A_1) \cup f(A_2) \subseteq f(A_1 \cup A_2)$
+    \begin{align}
+        y \in f(A_1) \cup f(A_2) & \Leftrightarrow y \in f(A_1) \text{ or } y \in f(A_2) \\
+        & \Leftrightarrow \exists x \in A_1 \mid f(x)=y \\
+        & \ \ \ \ \text{ or } \exists x \in A_2 \mid f(x)=y \notag \\
+        & \Leftrightarrow \exists x \in A_1 \cup A_2 \mid f(x)=y
+    \end{align}
+    \begin{align*}
+        \therefore f(A_1) \cup f(A_2) \subseteq f(A_1 \cup A_2)
+    \end{align*}
+    From \textcircled{1} and \textcircled{2}, $f(A_1 \cup A_2) = f(A_1) \cup f(A_2)$.
+\end{proof}
+
+\begin{problem}{6}
+    Show $f(A_1 \cap A_2) \subseteq f(A_1) \cap f(A_2)$
+\end{problem}
+\begin{proof}
+    \begin{align}
+        x \in A_1 \cap A_2 & \Leftrightarrow x \in A_1 \textop{and} x \in A_2 \\
+        & \Leftrightarrow f(x) \in f(A_1) \textop{and} f(x) \in f(A_2) \\
+        & \Leftrightarrow f(x) \in f(A_1) \cap f(A_2) 
+    \end{align}
+    \begin{align*}
+        \therefore f(A_1 \cap A_2) \subseteq f(A_1) \cap f(A_2)
+    \end{align*}
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter anything below this line.
+\end{document}
