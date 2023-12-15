@@ -1,0 +1,57 @@
+\documentclass[12pt]{article}
+    \usepackage[margin=1in]{geometry}
+    \usepackage{tikz}
+    \usepackage{tikz-3dplot}
+    \usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ}
+    \usepackage[english]{babel}
+    
+    %%% Style %%%
+    \theoremstyle{definition}
+    % \theoremstyle{remark}
+    \newtheorem{definition}{Definition}
+    \newtheorem{theorem}{Theorem}
+    \newtheorem{proposition}{Proposition}
+    \newtheorem{corollary}{Corollary}[theorem]
+    \newtheorem{lemma}[theorem]{Lemma}
+    \newtheorem{case}{Case}
+    \newtheorem*{remark}{Remark}
+
+    \pagestyle{fancy}
+    \setlength{\headheight}{65pt}
+    \newenvironment{problem}[2][Problem]{\begin{trivlist}
+    \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+    %%% Author Info %%%
+    \lhead{Hyukdong Kim}  %replace with your name
+    \rhead{Basic to Graduate \\ Lecture 2 \\ Set Theory (b)} %replace XYZ with the homework course number, semester (e.g. ``Spring 2019"), and assignment number.
+
+    %%% Custom Command %%%
+    \newcommand{\textop}[1]{\relax\ifmmode\mathop{\text{#1}}\else\text{#1}\fi} %https://tex.stackexchange.com/questions/8047/spacing-around-text-in-mathmode
+
+\begin{document}
+Let $f:A \rightarrow B$ be a function.
+Let $A_1 \subseteq A, B_1 \subseteq B$
+\begin{problem}{1}
+    Show $f(f^{-1}(B_1)) \subseteq B_1$.
+\end{problem}
+\begin{proof}
+    \[ \exists b \in B_1 \, | \, \forall a \in A, \, f(a) \neq b \]
+\end{proof}
+
+\begin{problem}{2}
+    Show $f^{-1}(f(A_1)) \supseteq A_1$.
+\end{problem}
+\begin{proof}
+    \[ \exists a_1, a_2 \in A_1 \, | \, a_1 \neq a_2 \, \text{and} \, \exists b \in B \, | \, f(a_1) = f(a_2) = b \]
+\end{proof}
+
+\begin{problem}{3}
+    Counter-example for $f(f^{-1}(B_1)) = B_1$ and $f^{-1}(f(A_1)) = A_1$.
+\end{problem}
+\begin{proof}
+    \[ f: \mathbb{R} \to \mathbb{R} \text{ is defined by} f(x) = x^2 \]
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter anything below this line.
+\end{document}
